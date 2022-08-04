@@ -9,7 +9,7 @@ import forestry.factory.MachineUIDs;
 import forestry.factory.ModuleFactory;
 import gregification.base.BaseUtility;
 import gregification.base.ModIDs;
-import gregification.forestry.ForestryModule;
+import gregification.forestry.ForestryCommon;
 import gregification.forestry.ForestryUtils;
 import gregification.forestry.bees.GTDropType;
 import gregtech.api.GTValues;
@@ -212,7 +212,7 @@ public class MiscRecipes {
     }
 
     private static void processScoop(OrePrefix prefix, Material material, ToolProperty property) {
-        ModHandler.addShapedRecipe(String.format("scoop_%s", material), ForestryModule.SCOOP.getStackForm(material),
+        ModHandler.addShapedRecipe(String.format("scoop_%s", material), ForestryCommon.SCOOP.getStackForm(material),
                 "SWS", "SSS", "xSh",
                 'S', new UnificationEntry(OrePrefix.stick, material),
                 'W', new ItemStack(Blocks.WOOL, 1, GTValues.W));

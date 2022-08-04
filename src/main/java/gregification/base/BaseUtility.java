@@ -5,9 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.FMLLaunchHandler;
-import net.minecraftforge.fml.relauncher.Side;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -36,6 +35,12 @@ public class BaseUtility {
         return new ResourceLocation(Gregification.MODID, name);
     }
 
+    @SidedProxy(
+            serverSide = "gregification.base.IncompatThrower",
+            clientSide = "gregification.base.IncompatThrowerClient"
+    )
+    public static IncompatThrower incompatThrower;
+
     /** Should only be called after {@link net.minecraftforge.fml.common.event.FMLPreInitializationEvent} */
     public static void throwIncompatibilityIfLoaded(String modID, String... customMessages) {
         if (Loader.isModLoaded(modID)) {
@@ -49,8 +54,6 @@ public class BaseUtility {
 
     /** Should only be called after {@link net.minecraftforge.fml.common.event.FMLPreInitializationEvent} */
     public static void throwIncompatibility(List<String> messages) {
-        throw FMLLaunchHandler.side() == Side.SERVER
-                ? new RuntimeException(String.join(",", messages))
-                : new ModIncompatibilityException(messages);
+        incompatThrower.throwIncompatibility(messages);
     }
 }

@@ -33,7 +33,7 @@ import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele.*;
 import gregification.base.BaseUtility;
 import gregification.base.ModIDs;
-import gregification.forestry.ForestryModule;
+import gregification.forestry.ForestryCommon;
 import gregification.forestry.ForestryUtils;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
@@ -61,7 +61,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
     // Organic
     CLAY(GTBranchDefinition.GT_ORGANIC, "Lutum", true, 0xC8C8DA, 0x0000FF,
             beeSpecies -> {
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     beeSpecies.addProduct(getExtraBeesComb(22), 0.30f); // CLAY
                 } else {
                     beeSpecies.addProduct(getForestryComb(EnumHoneyComb.HONEY), 0.30f);
@@ -102,7 +102,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 AlleleHelper.getInstance().set(template, FLOWERING, Flowering.SLOWER);
                 AlleleHelper.getInstance().set(template, TEMPERATURE_TOLERANCE, Tolerance.BOTH_1);
                 AlleleHelper.getInstance().set(template, HUMIDITY_TOLERANCE, Tolerance.BOTH_1);
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     AlleleHelper.getInstance().set(template, FLOWER_PROVIDER, ForestryUtils.getFlowers(ModIDs.MODID_EB, "water"));
                 }
             },
@@ -182,7 +182,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 AlleleHelper.getInstance().set(template, SPEED, Speed.SLOWER);
                 AlleleHelper.getInstance().set(template, TEMPERATURE_TOLERANCE, Tolerance.NONE);
                 AlleleHelper.getInstance().set(template, HUMIDITY_TOLERANCE, Tolerance.NONE);
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     AlleleHelper.getInstance().set(template, FLOWER_PROVIDER, ForestryUtils.getFlowers(ModIDs.MODID_EB, "water"));
                 }
             },
@@ -190,7 +190,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
     ),
     ASH(GTBranchDefinition.GT_ORGANIC, "Cinis", true, 0x1E1A18, 0xC6C6C6,
             beeSpecies -> {
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     beeSpecies.addProduct(getExtraBeesComb(9), 0.30f); // SEED
                 } else {
                     beeSpecies.addProduct(getForestryComb(EnumHoneyComb.HONEY), 0.30f);
@@ -213,7 +213,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
     ),
     APATITE(GTBranchDefinition.GT_ORGANIC, "Stercorat", true, 0x7FCEF5, 0x654525,
             beeSpecies -> {
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     beeSpecies.addProduct(getExtraBeesComb(9), 0.15f); // SEED
                 } else {
                     beeSpecies.addProduct(getForestryComb(EnumHoneyComb.HONEY), 0.15f);
@@ -227,7 +227,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 AlleleHelper.getInstance().set(template, LIFESPAN, Lifespan.LONGER);
                 AlleleHelper.getInstance().set(template, FLOWER_PROVIDER, Flowers.WHEAT);
                 AlleleHelper.getInstance().set(template, FLOWERING, Flowering.FASTER);
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     AlleleHelper.getInstance().set(template, FLOWER_PROVIDER, ForestryUtils.getFlowers(ModIDs.MODID_EB, "rock"));
                 }
             },
@@ -764,7 +764,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 mutation.requireResource("blockRedstone");
                 //mutation.addMutationCondition() TODO Biome?
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> ForestryCommon.EXTRA_BEES
     ),
     LAPOTRON(GTBranchDefinition.GT_INDUSTRIAL, "Azureus", false, 0xFFEBC4, 0xE36400,
             beeSpecies -> {
@@ -790,7 +790,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 mutation.restrictTemperature(EnumTemperature.ICY);
                 //mutation.addMutationCondition(); TODO Moon, if available
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> ForestryCommon.EXTRA_BEES
     ),
     // TODO Pyrotheum, Cryotheum
 
@@ -861,7 +861,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 mutation.requireResource("blockThaumium");
                 //mutation.addMutationCondition(); todo magical forest
             },
-            () -> ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.THAUMIC_BEES
     ),
     AMBER(GTBranchDefinition.GT_THAUMIC, "Electri", true, 0xEE7700, 0x774B15,
             beeSpecies -> {
@@ -880,7 +880,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(THAUMIUM, STICKYRESIN, 10);
                 mutation.requireResource("blockAmber");
             },
-            () -> ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.THAUMIC_BEES
     ),
     QUICKSILVER(GTBranchDefinition.GT_THAUMIC, "Veloxenti", true, 0x7A007A, 0x5C005C,
             beeSpecies -> {
@@ -897,7 +897,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 AlleleHelper.getInstance().set(template, EFFECT, AlleleEffects.effectMiasmic);
             },
             dis -> dis.registerMutation(THAUMIUM, SILVER, 10),
-            () -> ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.THAUMIC_BEES
     ),
     SALISMUNDUS(GTBranchDefinition.GT_THAUMIC, "Mundus", true, 0xF7ADDE, 0x592582,
             beeSpecies -> {
@@ -919,7 +919,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(THAUMIUM, THAUMIUM, 8);
                 // magical forest biome
             },
-            () -> ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.THAUMIC_BEES
     ),
     TAINTED(GTBranchDefinition.GT_THAUMIC, "Labem", true, 0x904BB8, 0xE800FF,
             beeSpecies -> {
@@ -937,7 +937,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 AlleleHelper.getInstance().set(template, TEMPERATURE_TOLERANCE, Tolerance.BOTH_1);
                 AlleleHelper.getInstance().set(template, HUMIDITY_TOLERANCE, Tolerance.BOTH_1);
                 AlleleHelper.getInstance().set(template, LIFESPAN, Lifespan.SHORT);
-                if (Loader.isModLoaded(ModIDs.MODID_EB)) {
+                if (ForestryCommon.EXTRA_BEES) {
                     AlleleHelper.getInstance().set(template, FLOWER_PROVIDER, ForestryUtils.getFlowers(ModIDs.MODID_EB, "rock"));
                 }
             },
@@ -945,7 +945,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(THAUMIUM, THAUMIUM, 7);
                 // tainted biome
             },
-            () -> ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.THAUMIC_BEES
     ),
     DIVIDED(GTBranchDefinition.GT_THAUMIC, "Instabilis", true, 0xF0F0F0, 0xDCDCDC,
             beeSpecies -> {
@@ -965,7 +965,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(DIAMOND, IRON, 3);
                 mutation.requireResource("blockMagicalWood");
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_XU2) && Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> Loader.isModLoaded(ModIDs.MODID_XU2) && ForestryCommon.EXTRA_BEES
     ),
     SPARKLING(GTBranchDefinition.GT_THAUMIC, "Vesperstella", true, 0x7A007A, 0xFFFFFF,
             beeSpecies -> {
@@ -1097,7 +1097,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IMutationBuilder mutation = dis.registerMutation(THORIUM, ForestryUtils.getSpecies(ModIDs.MODID_EB, "rotten"), 1).setIsSecret();
                 mutation.requireResource("blockLutetium");
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> ForestryCommon.EXTRA_BEES
     ),
     AMERICIUM(GTBranchDefinition.GT_RADIOACTIVE, "Libertas", false, 0x287869, 0x0C453A,
             beeSpecies -> {
@@ -1115,7 +1115,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IMutationBuilder mutation = dis.registerMutation(LUTETIUM, CHROME, 1).setIsSecret();
                 mutation.requireResource("blockAmericium");
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> ForestryCommon.EXTRA_BEES
     ),
     NEUTRONIUM(GTBranchDefinition.GT_RADIOACTIVE, "Media", false, 0xFFF0F0, 0xFAFAFA,
             beeSpecies -> {
@@ -1133,13 +1133,13 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IMutationBuilder mutation = dis.registerMutation(NAQUADRIA, AMERICIUM, 1).setIsSecret();
                 mutation.requireResource("blockNeutronium");
             },
-            () -> Loader.isModLoaded(ModIDs.MODID_EB)
+            () -> ForestryCommon.EXTRA_BEES
     ),
 
     // Twilight
     NAGA(GTBranchDefinition.GT_TWILIGHT, "Serpens", true, 0x0D5A0D, 0x28874B,
             beeSpecies -> {
-                if (ForestryModule.THAUMIC_BEES) {
+                if (ForestryCommon.THAUMIC_BEES) {
                     beeSpecies.addProduct(getGTComb(GTCombType.SALISMUNDUS), 0.02f);
                 } else {
                     beeSpecies.addProduct(getMagicBeesComb(0), 0.20f); // MUNDANE
@@ -1157,11 +1157,11 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(ForestryUtils.getSpecies(ModIDs.MODID_MB, "Eldritch"), BeeDefinition.IMPERIAL, 8);
                 mutation.restrictHumidity(EnumHumidity.DAMP);
             },
-            () -> ForestryModule.TWILIGHT_BEES
+            () -> ForestryCommon.TWILIGHT_BEES
     ),
     LICH(GTBranchDefinition.GT_TWILIGHT, "Necro", true, 0xC5C5C5, 0x5C605E,
             beeSpecies -> {
-                if (ForestryModule.THAUMIC_BEES) {
+                if (ForestryCommon.THAUMIC_BEES) {
                     beeSpecies.addProduct(getGTComb(GTCombType.SALISMUNDUS), 0.04f);
                 } else {
                     beeSpecies.addProduct(getMagicBeesComb(3), 0.30f); // OTHERWORLDLY
@@ -1179,11 +1179,11 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(ForestryUtils.getSpecies(ModIDs.MODID_MB, "Supernatural"), NAGA, 7);
                 mutation.restrictHumidity(EnumHumidity.ARID);
             },
-            () -> ForestryModule.TWILIGHT_BEES
+            () -> ForestryCommon.TWILIGHT_BEES
     ),
     HYDRA(GTBranchDefinition.GT_TWILIGHT, "Draco", true, 0x872836, 0xB8132C,
             beeSpecies -> {
-                if (ForestryModule.THAUMIC_BEES) {
+                if (ForestryCommon.THAUMIC_BEES) {
                     beeSpecies.addProduct(getGTComb(GTCombType.SALISMUNDUS), 0.06f);
                 } else {
                     beeSpecies.addProduct(getMagicBeesComb(12), 0.30f); // FIREY
@@ -1201,7 +1201,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 IBeeMutationBuilder mutation = dis.registerMutation(LICH, ForestryUtils.getSpecies(ModIDs.MODID_MB, "Firey"), 6);
                 // todo custom biome?
             },
-            () -> ForestryModule.TWILIGHT_BEES
+            () -> ForestryCommon.TWILIGHT_BEES
     ),
     URGHAST(GTBranchDefinition.GT_TWILIGHT, "Exspiravit", true, 0xA7041C, 0x7C0618,
             beeSpecies -> {
@@ -1221,7 +1221,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 mutation.requireResource("blockThaumium");
                 mutation.restrictTemperature(EnumTemperature.HELLISH);
             },
-            () -> ForestryModule.TWILIGHT_BEES && ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.TWILIGHT_BEES && ForestryCommon.THAUMIC_BEES
     ),
     SNOWQUEEN(GTBranchDefinition.GT_TWILIGHT, "Nixregina", true, 0xD02001, 0x9C0018,
             beeSpecies -> {
@@ -1239,7 +1239,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
                 mutation.requireResource("blockSalisMundus"); // todo add this
                 mutation.restrictTemperature(EnumTemperature.ICY);
             },
-            () -> ForestryModule.TWILIGHT_BEES && ForestryModule.THAUMIC_BEES
+            () -> ForestryCommon.TWILIGHT_BEES && ForestryCommon.THAUMIC_BEES
     ),
 
     // Space
@@ -1323,7 +1323,7 @@ public enum GTBeeDefinition implements IBeeDefinition {
     }
 
     private static ItemStack getGTComb(GTCombType type) {
-        return new ItemStack(ForestryModule.gtCombs, 1, type.ordinal());
+        return new ItemStack(ForestryCommon.gtCombs, 1, type.ordinal());
     }
 
     private void setSpeciesProperties(GTAlleleBeeSpecies beeSpecies) {

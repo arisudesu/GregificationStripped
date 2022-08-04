@@ -25,8 +25,8 @@ import forestry.factory.MachineUIDs;
 import forestry.factory.ModuleFactory;
 import gregification.base.BaseUtility;
 import gregification.base.ModIDs;
+import gregification.forestry.ForestryCommon;
 import gregification.forestry.ForestryConfig;
-import gregification.forestry.ForestryModule;
 import gregification.forestry.ForestryUtils;
 import gregification.forestry.bees.GTCombType;
 import gregification.forestry.bees.GTDropType;
@@ -85,11 +85,11 @@ public class CombRecipes {
             addCentrifugeToItemStack(GTCombType.COAL, new ItemStack[]{OreDictUnifier.get(OrePrefix.gem, Materials.Coal), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{5 * 100, 50 * 100}, Voltage.ULV);
             addCentrifugeToItemStack(GTCombType.COKE, new ItemStack[]{OreDictUnifier.get(OrePrefix.gem, Materials.Coke), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{5 * 100, 50 * 100}, Voltage.ULV);
             // TODO the recipe below gave 1 oilberry instead of oilsands dust. change to that if oilberry balance stays the same in the new crop system
-            addCentrifugeToItemStack(GTCombType.OIL, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.Oilsands), ForestryModule.gtDrops.get(GTDropType.OIL), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{70 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
+            addCentrifugeToItemStack(GTCombType.OIL, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.Oilsands), ForestryCommon.gtDrops.get(GTDropType.OIL), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{70 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
         } else {
             addCentrifugeToItemStack(GTCombType.COAL, new ItemStack[]{OreDictUnifier.get(OrePrefix.gem, Materials.Coal), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Coal), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{5 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
             addCentrifugeToItemStack(GTCombType.COKE, new ItemStack[]{OreDictUnifier.get(OrePrefix.gem, Materials.Coke), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Coke), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{5 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
-            addCentrifugeToItemStack(GTCombType.OIL, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustSmall, Materials.Oilsands), ForestryModule.gtDrops.get(GTDropType.OIL), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{70 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
+            addCentrifugeToItemStack(GTCombType.OIL, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustSmall, Materials.Oilsands), ForestryCommon.gtDrops.get(GTDropType.OIL), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{70 * 100, 100 * 100, 50 * 100}, Voltage.ULV);
             addCentrifugeToMaterial(GTCombType.APATITE, new Material[]{Materials.Apatite, Materials.Phosphate}, new int[]{100 * 100, 80 * 100}, new int[]{}, Voltage.ULV, ItemStack.EMPTY, 30 * 100);
         }
 
@@ -271,11 +271,11 @@ public class CombRecipes {
         }
 
         // Twilight
-        if (ForestryModule.TWILIGHT_BEES) {
+        if (ForestryCommon.TWILIGHT_BEES) {
             addCentrifugeToItemStack(GTCombType.NAGA, new ItemStack[]{BaseUtility.getModItem(ModIDs.MODID_TF, "naga_scale", 0), BaseUtility.getModItem(ModIDs.MODID_MB, "propolis", 4), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{10 * 100, 5 * 100, 30 * 100}, Voltage.MV);
             addCentrifugeToItemStack(GTCombType.LICH, new ItemStack[]{OreDictUnifier.get("ingotIronwood"), BaseUtility.getModItem(ModIDs.MODID_MB, "propolis", 5), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{10 * 100, 5 * 100, 30 * 100}, Voltage.MV);
             addCentrifugeToItemStack(GTCombType.HYDRA, new ItemStack[]{OreDictUnifier.get("ingotSteeleaf"), BaseUtility.getModItem(ModIDs.MODID_MB, "propolis", 1), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{10 * 100, 5 * 100, 30 * 100}, Voltage.HV);
-            if (ForestryModule.THAUMIC_BEES) {
+            if (ForestryCommon.THAUMIC_BEES) {
                 addCentrifugeToItemStack(GTCombType.URGHAST, new ItemStack[]{OreDictUnifier.get("carminite"), BaseUtility.getModItem(ModIDs.MODID_MB, "propolis", 2), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{10 * 100, 5 * 100, 30 * 100}, Voltage.HV);
                 addCentrifugeToItemStack(GTCombType.SNOWQUEEN, new ItemStack[]{OreDictUnifier.get("ingotKnightmetal"), BaseUtility.getModItem(ModIDs.MODID_MB, "propolis", 3), ModuleCore.getItems().beeswax.getItemStack()}, new int[]{10 * 100, 5 * 100, 30 * 100}, Voltage.HV);
             }

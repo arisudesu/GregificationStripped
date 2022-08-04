@@ -18,7 +18,7 @@
 package gregification.forestry.bees;
 
 import gregification.base.ModIDs;
-import gregification.forestry.ForestryModule;
+import gregification.forestry.ForestryCommon;
 import net.minecraftforge.fml.common.Loader;
 
 public enum GTCombType {
@@ -34,8 +34,8 @@ public enum GTCombType {
 
     //Industrial Line
     COOLANT("coolant", false, 0x144F5A, 0x2494A2),
-    ENERGY("energy", true, 0xC11F1F, 0xEBB9B9),
-    LAPOTRON("lapotron", true, 0x1414FF, 0x6478FF),
+    ENERGY("energy", ForestryCommon.EXTRA_BEES, 0xC11F1F, 0xEBB9B9),
+    LAPOTRON("lapotron", ForestryCommon.EXTRA_BEES, 0x1414FF, 0x6478FF),
     PYROTHEUM("pyrotheum", false, 0xffebc4, 0xe36400),
     CRYOTHEUM("cryotheum", false, 0x2660ff, 0x5af7ff),
 
@@ -98,23 +98,23 @@ public enum GTCombType {
     NAQUADAH("naquadah", true, 0x000000, 0x004400),
     NAQUADRIA("naquadria", true, 0x000000, 0x002400),
     THORIUM("thorium", true, 0x001E00, 0x005000),
-    LUTETIUM("lutetium", true, 0x0059FF, 0x00AAFF),
-    AMERICIUM("americium", true, 0x0C453A, 0x287869),
-    NEUTRONIUM("neutronium", true, 0xFFF0F0, 0xFAFAFA),
+    LUTETIUM("lutetium", ForestryCommon.EXTRA_BEES, 0x0059FF, 0x00AAFF),
+    AMERICIUM("americium", ForestryCommon.EXTRA_BEES, 0x0C453A, 0x287869),
+    NEUTRONIUM("neutronium", ForestryCommon.EXTRA_BEES, 0xFFF0F0, 0xFAFAFA),
 
     //Twilight
-    NAGA("naga", ForestryModule.TWILIGHT_BEES, 0x0D5A0D, 0x28874B),
-    LICH("lich", ForestryModule.TWILIGHT_BEES, 0x5C605E, 0xC5C5C5),
-    HYDRA("hydra", ForestryModule.TWILIGHT_BEES, 0x872836, 0xB8132C),
-    URGHAST("urghast", ForestryModule.TWILIGHT_BEES && ForestryModule.THAUMIC_BEES, 0x7C0618, 0xA7041C),
-    SNOWQUEEN("snowqueen", ForestryModule.TWILIGHT_BEES && ForestryModule.THAUMIC_BEES, 0x9C0018, 0xD02001),
+    NAGA("naga", ForestryCommon.TWILIGHT_BEES, 0x0D5A0D, 0x28874B),
+    LICH("lich", ForestryCommon.TWILIGHT_BEES, 0x5C605E, 0xC5C5C5),
+    HYDRA("hydra", ForestryCommon.TWILIGHT_BEES, 0x872836, 0xB8132C),
+    URGHAST("urghast", ForestryCommon.TWILIGHT_BEES && ForestryCommon.THAUMIC_BEES, 0x7C0618, 0xA7041C),
+    SNOWQUEEN("snowqueen", ForestryCommon.TWILIGHT_BEES && ForestryCommon.THAUMIC_BEES, 0x9C0018, 0xD02001),
 
     //Thaumcraft Line TODO Most of these probably no longer fit
-    THAUMIUM("thaumium", ForestryModule.THAUMIC_BEES, 0x7A007A, 0x5C005C),
-    AMBER("amber", ForestryModule.THAUMIC_BEES, 0x774B15, 0xEE7700),
-    QUICKSILVER("quicksilver", ForestryModule.THAUMIC_BEES, 0xc7c7ea, 0xb5b3df),
-    SALISMUNDUS("salismundus", ForestryModule.THAUMIC_BEES, 0xF7ADDE, 0x592582),
-    TAINTED("tainted", ForestryModule.THAUMIC_BEES, 0x904BB8, 0xE800FF),
+    THAUMIUM("thaumium", ForestryCommon.THAUMIC_BEES, 0x7A007A, 0x5C005C),
+    AMBER("amber", ForestryCommon.THAUMIC_BEES, 0x774B15, 0xEE7700),
+    QUICKSILVER("quicksilver", ForestryCommon.THAUMIC_BEES, 0xc7c7ea, 0xb5b3df),
+    SALISMUNDUS("salismundus", ForestryCommon.THAUMIC_BEES, 0xF7ADDE, 0x592582),
+    TAINTED("tainted", ForestryCommon.THAUMIC_BEES, 0x904BB8, 0xE800FF),
 
     // Semi-stable nugget
     DIVIDED("divided", Loader.isModLoaded(ModIDs.MODID_XU2) && Loader.isModLoaded(ModIDs.MODID_EB), 0xF0F0F0, 0xDCDCDC),

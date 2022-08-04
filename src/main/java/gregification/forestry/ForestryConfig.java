@@ -2,7 +2,8 @@ package gregification.forestry;
 
 import gregification.Gregification;
 import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.*;
+import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.common.config.Config.LangKey;
 
 @LangKey("gregification.config.forestry")
 @Config(modid = Gregification.MODID, name = Gregification.MODID + "/forestry", category = "Forestry")
@@ -46,6 +47,13 @@ public class ForestryConfig {
             "Default: true"
     })
     public static boolean gtFrames = true;
+
+    @Comment({
+            "Enable GT Extra Bees",
+            "Requirements: Forestry Apiculture module, Extra Bees, gtBees config option",
+            "Default: true"
+    })
+    public static boolean extraBees = true;
 
     @Comment({
             "Enable GT Twilight Forest Bees",

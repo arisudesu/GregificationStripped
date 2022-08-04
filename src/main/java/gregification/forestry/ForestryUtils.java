@@ -4,10 +4,6 @@ import forestry.api.apiculture.IAlleleBeeEffect;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAlleleFlowers;
-import forestry.api.recipes.RecipeManagers;
-import forestry.factory.MachineUIDs;
-import forestry.factory.ModuleFactory;
-import forestry.factory.recipes.CarpenterRecipeManager;
 import forestry.modules.ModuleHelper;
 import gregification.base.ModIDs;
 import gregification.forestry.bees.GTCombType;
@@ -26,7 +22,7 @@ public class ForestryUtils {
             ForestryModule.logger.error("Tried to get GT Comb stack, but Apiculture module is not enabled!");
             return ItemStack.EMPTY;
         }
-        return new ItemStack(ForestryModule.gtCombs, amount, type.ordinal());
+        return new ItemStack(ForestryCommon.gtCombs, amount, type.ordinal());
     }
 
     public static ItemStack getDropStack(GTDropType type) {
@@ -38,7 +34,7 @@ public class ForestryUtils {
             ForestryModule.logger.error("Tried to get GT Drop stack, but Apiculture module is not enabled!");
             return ItemStack.EMPTY;
         }
-        return new ItemStack(ForestryModule.gtDrops, amount, type.ordinal());
+        return new ItemStack(ForestryCommon.gtCombs, amount, type.ordinal());
     }
 
     public static ItemStack getFrameStack(GTFrameType type) {
@@ -46,7 +42,7 @@ public class ForestryUtils {
             ForestryModule.logger.error("Tried to get GT Frame stack, but Apiculture module is not enabled!");
             return ItemStack.EMPTY;
         }
-        return new ItemStack(ForestryModule.gtFrames.get(type), 1);
+        return new ItemStack(ForestryCommon.gtFrames.get(type), 1);
     }
 
     public static IAlleleBeeEffect getEffect(String modid, String name) {

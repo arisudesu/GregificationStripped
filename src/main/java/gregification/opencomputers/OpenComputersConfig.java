@@ -2,7 +2,9 @@ package gregification.opencomputers;
 
 import gregification.Gregification;
 import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.*;
+import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.common.config.Config.LangKey;
+import net.minecraftforge.common.config.Config.RequiresMcRestart;
 
 @LangKey("gregification.config.open_computers")
 @Config(modid = Gregification.MODID, name = Gregification.MODID + "/open_computers", category = "Open Computers")
